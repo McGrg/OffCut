@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:OffCut"
         mc:Ignorable="d"
         Title="Обрезки" MinWidth="600" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Cursor="Hand">
+    <Window.Resources>
+        <ControlTemplate TargetType="Button" x:Key="btTemplate">
+            <Border CornerRadius="3" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
+                <ContentControl Margin="{TemplateBinding Margin}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}" Content="{TemplateBinding Content}"/>
+            </Border>
+        </ControlTemplate>
+    </Window.Resources>
     <Grid Margin="2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50*"></ColumnDefinition>
@@ -81,8 +88,8 @@
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5">
             <DockPanel LastChildFill="False">
-                <Button DockPanel.Dock="Left" Content="Вычислить"></Button>
-                <Button DockPanel.Dock="Right" Content="Отмена"></Button>
+                <Button x:Name="CancelBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Right" Content="Отмена" Margin="30 0 30 0" MinWidth="70"></Button>
+                <Button x:Name="CalcBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Right" Content="Вычислить" Margin="20 0 20 0" MinWidth="60"></Button>
             </DockPanel>
         </StackPanel>
     </Grid>
