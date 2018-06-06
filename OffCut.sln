@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OffCut", "OffCut\OffCut.csproj", "{E1112E6D-933B-4324-A7C0-1EABF57F13BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1112E6D-933B-4324-A7C0-1EABF57F13BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1112E6D-933B-4324-A7C0-1EABF57F13BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1112E6D-933B-4324-A7C0-1EABF57F13BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1112E6D-933B-4324-A7C0-1EABF57F13BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8AF66F1F-6215-4D5F-B9B1-FF6CB0F642CA}
+	EndGlobalSection
+EndGlobal
