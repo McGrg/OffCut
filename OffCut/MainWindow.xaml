@@ -5,8 +5,85 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OffCut"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Обрезки" MinWidth="600" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Cursor="Hand">
+    <Grid Margin="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"></ColumnDefinition>
+            <ColumnDefinition Width="50*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"></RowDefinition>
+            <RowDefinition Height="45*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label x:Name="label" Content="Материал" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0"/>
+        <Label x:Name="label1" Content="Изделие" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1" Grid.Row="0"/>
+        <StackPanel Orientation="Vertical" Margin="5 30 5 5" Grid.Column="0" Grid.Row="0" >
+            <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Background="Cornsilk" Content="Ширина листа" VerticalAlignment="Center" />
+                <ComboBox x:Name="ComboBox1" DockPanel.Dock="Right" VerticalAlignment="Center" MinWidth="100" />
+            </DockPanel>
+            <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Длина листа" VerticalAlignment="Center" />
+                <ComboBox x:Name="ComboBox2" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+            </DockPanel>
+            <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Толщина листа" VerticalAlignment="Center" />
+                <ComboBox x:Name="ComboBox3" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+            </DockPanel>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Margin="5 30 5 5" Grid.Column="1" Grid.Row="0" >
+            <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Ширина изделия" VerticalAlignment="Center" />
+                <TextBox x:Name="texBoxWidth" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+            </DockPanel>
+            <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Дина изделия" VerticalAlignment="Center" />
+                <TextBox x:Name="texBoxLenght" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+            </DockPanel>
+            <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Толщина изделия" VerticalAlignment="Center" />
+                <TextBox x:Name="textBoxThikness" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+            </DockPanel>
+            <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Припуск на обработку" VerticalAlignment="Center" />
+                <TextBox x:Name="textBoxOver" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+            </DockPanel>
+        </StackPanel>
+        <Label x:Name="Result" Content="Результаты" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" />
+        <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="1" Margin="5 30 5 5">
+            <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Content="Вес одного листа" VerticalAlignment="Center" Background="Cornsilk"   Grid.Column="0" Grid.Row="1"/>
+                <Label x:Name="ResultSheet" DockPanel.Dock="Right" VerticalAlignment="Center" Content="test" MinWidth="100" />
+            </DockPanel>
+            <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Content="Требуемое количество листов" VerticalAlignment="Center" Background="Cornsilk" Grid.Column="0" Grid.Row="1"/>
+                <Label x:Name="AmountOfSheets" DockPanel.Dock="Right"   VerticalAlignment="Center" Content="test" MinWidth="100" />
+            </DockPanel>
+        </StackPanel>
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" Margin="5 30 5 5">
+            <DockPanel LastChildFill="False"   VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Content="Вес одного изделия" VerticalAlignment="Center" Background="Cornsilk"   Grid.Column="0" Grid.Row="1"/>
+                <Label x:Name="ProductWeight" DockPanel.Dock="Right"   VerticalAlignment="Center" Content="test" MinWidth="100" HorizontalAlignment="Right"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False"   VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Content="Количество изделий на листе" VerticalAlignment="Center" Background="Cornsilk" MinWidth="140" Grid.Column="0" Grid.Row="1"/>
+                <Label x:Name="AmountOfPieces" DockPanel.Dock="Right"   VerticalAlignment="Center" Content="test" MinWidth="100"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False"   VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Content="Вес обрезков" VerticalAlignment="Center" Background="Cornsilk" MinWidth="140" Grid.Column="0" Grid.Row="1"/>
+                <Label x:Name="TotalCutoff" DockPanel.Dock="Right"   VerticalAlignment="Center" Content="test" MinWidth="100"/>
+            </DockPanel>
+            <DockPanel LastChildFill="False"   VerticalAlignment="Center" Margin="5">
+                <Label DockPanel.Dock="Left" Content="Вес обрезков" VerticalAlignment="Center" Background="Cornsilk" MinWidth="140" Grid.Column="0" Grid.Row="1"/>
+                <Label x:Name="CutoffPercent" DockPanel.Dock="Right"   VerticalAlignment="Center" Content="test" MinWidth="100"/>
+            </DockPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5">
+            <DockPanel LastChildFill="False">
+                <Button DockPanel.Dock="Left" Content="Вычислить"></Button>
+                <Button DockPanel.Dock="Right" Content="Отмена"></Button>
+            </DockPanel>
+        </StackPanel>
     </Grid>
 </Window>
