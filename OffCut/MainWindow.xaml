@@ -42,11 +42,11 @@
         <StackPanel Orientation="Vertical" Margin="5 30 5 5" Grid.Column="1" Grid.Row="0" >
             <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
                 <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Ширина изделия" VerticalAlignment="Center" />
-                <TextBox x:Name="texBoxWidth" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+                <TextBox x:Name="textBoxWidth" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
             </DockPanel>
             <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
                 <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Дина изделия" VerticalAlignment="Center" />
-                <TextBox x:Name="texBoxLenght" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+                <TextBox x:Name="textBoxLenght" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
             </DockPanel>
             <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
                 <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Толщина изделия" VerticalAlignment="Center" />
@@ -82,14 +82,15 @@
                 <Label x:Name="TotalCutoff" DockPanel.Dock="Right"   VerticalAlignment="Center" Content="test" MinWidth="100"/>
             </DockPanel>
             <DockPanel LastChildFill="False"   VerticalAlignment="Center" Margin="5">
-                <Label DockPanel.Dock="Left" Content="Вес обрезков" VerticalAlignment="Center" Background="Cornsilk" MinWidth="140" Grid.Column="0" Grid.Row="1"/>
+                <Label DockPanel.Dock="Left" Content="% обрезков" VerticalAlignment="Center" Background="Cornsilk" MinWidth="140" Grid.Column="0" Grid.Row="1"/>
                 <Label x:Name="CutoffPercent" DockPanel.Dock="Right"   VerticalAlignment="Center" Content="test" MinWidth="100"/>
             </DockPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="5">
             <DockPanel LastChildFill="False">
-                <Button x:Name="CancelBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Right" Content="Отмена" Margin="30 0 30 0" MinWidth="70"></Button>
-                <Button x:Name="CalcBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Right" Content="Вычислить" Margin="20 0 20 0" MinWidth="60"></Button>
+                <Button x:Name="ExitBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Right" Content="Закрыть" Margin="15 0 15 0" MinWidth="70" Click="ExitBtn_Click"></Button>
+                <Button x:Name="CancelBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Right" Content="Отмена" Margin="15 0 15 0" MinWidth="70" Click="CancelBtn_Click"></Button>
+                <Button x:Name="CalcBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Right" Content="Вычислить" Margin="15 0 15 0" MinWidth="60"></Button>
             </DockPanel>
         </StackPanel>
     </Grid>
