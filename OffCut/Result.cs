@@ -8,5 +8,18 @@ namespace OffCut
 {
     class Result
     {
+        private Rectangle figBig, figSmall;
+        private int numberA, numberB;
+
+        public Result(Rectangle A, Rectangle B)
+        {
+
+        }
+
+        private int Calc (Rectangle big, Rectangle small)
+        {
+
+           return
+        }
     }
 }

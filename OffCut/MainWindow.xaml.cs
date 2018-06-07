@@ -30,7 +30,6 @@ namespace OffCut
 
         public MainWindow()
         {
-           
            InitializeComponent();
            InitialiseComboBoxes();
         }
@@ -45,19 +44,7 @@ namespace OffCut
         //
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
-            this.ComboBox1.SelectedIndex = 0;
-            this.ComboBox2.SelectedIndex = 0;
-            this.ComboBox3.SelectedIndex = 0;
-            this.textBoxWidth.Text = "";
-            this.textBoxLenght.Text = "";
-            this.textBoxThikness.Text = "";
-            this.textBoxOver.Text = "";
-            this.ResultSheet.Content = "";
-            this.AmountOfSheets.Content = "";
-            this.ProductWeight.Content = "";
-            this.AmountOfPieces.Content = "";
-            this.TotalCutoff.Content = "";
-            this.CutoffPercent.Content = "";
+            Cleaning();
         }
         //
         // Заполнение ComboBoxes
@@ -66,13 +53,31 @@ namespace OffCut
         {
             sheetWidth = new ObservableCollection<int> {500, 1000, 1500, 2000};
             ComboBox1.ItemsSource = sheetWidth;
-            ComboBox1.SelectedIndex = 0;
             sheetLenght = new ObservableCollection<int> {3000, 6000};
             ComboBox2.ItemsSource = sheetLenght;
-            ComboBox2.SelectedIndex = 0;
             sheetThikness = new ObservableCollection<int> {3, 4, 5, 6, 7, 8, 9, 10};
             ComboBox3.ItemsSource = sheetThikness;
+            Cleaning();
+        }
+
+        //
+        // Очистка полей
+        //
+        private void Cleaning()
+        {
+            ComboBox1.SelectedIndex = 0;
+            ComboBox2.SelectedIndex = 0;
             ComboBox3.SelectedIndex = 0;
+            textBoxWidth.Text = "";
+            textBoxLenght.Text = "";
+            textBoxThikness.Text = "";
+            textBoxOver.Text = "";
+            ResultSheet.Content = "";
+            AmountOfSheets.Content = "";
+            ProductWeight.Content = "";
+            AmountOfPieces.Content = "";
+            TotalCutoff.Content = "";
+            CutoffPercent.Content = "";
         }
     }
 }

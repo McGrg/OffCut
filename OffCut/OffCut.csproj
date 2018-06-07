@@ -55,6 +55,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Detail.cs" />
+    <Compile Include="Rectangle.cs" />
     <Compile Include="Result.cs" />
     <Compile Include="Sheet.cs" />
     <Page Include="MainWindow.xaml">
