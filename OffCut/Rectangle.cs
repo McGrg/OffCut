@@ -8,9 +8,9 @@ namespace OffCut
 {
     class Rectangle
     {
-        private double width, lenght;
+        private int width, lenght;
 
-        public double Lenght { get; set; }
-        public double Width { get; set; }
+        public int Lenght { get => lenght; set => lenght = value; }
+        public int Width { get => width; set => width = value; }
     }
 }
