@@ -8,29 +8,22 @@ namespace OffCut
 {
     class Sheet
     {
-        private double width, lenght, thikness, weight;
+        private double width, lenght, thikness;
+        private double weight;
         private string name;
 
-        public double Width
-        {
-            get { return width; }
-        }
-        public double Lenght
-        {
-            get { return lenght; }
-        }
-        public double Thikness
-        {
-            get { return thikness; }
-        }
+        public double Width { get => width; set => width = value; }
+
+        public double Lenght { get => lenght; set => lenght = value; }
+
+        public double Thikness { get => thikness; set => thikness = value; }
+
         public double Weight
         {
             get { return weight; }
         }
-        public string Name
-        {
-            get { return name; }
-        }
+        public string Name { get => name; set => name = value; }
+
         private double SetWeight()
         {
             return (width / 1000) * (lenght / 1000) * (thikness / 1000) * 7850;
@@ -47,6 +40,7 @@ namespace OffCut
                 this.weight = this.SetWeight();
             }
         }
+
         private bool Permission (double w, double l, double t)
         {
             return true;

@@ -24,9 +24,10 @@ namespace OffCut
         //
         //переменные ObservableCollection для заполнения ComboBoxes
         //
-        public ObservableCollection<int> sheetWidth;
-        public ObservableCollection<int> sheetLenght;
-        public ObservableCollection<int> sheetThikness;
+        private ObservableCollection<int> sheetWidth;
+        private ObservableCollection<int> sheetLenght;
+        private ObservableCollection<int> sheetThikness;
+        private int res;
 
         public MainWindow()
         {
@@ -52,11 +53,11 @@ namespace OffCut
         private void InitialiseComboBoxes()
         {
             sheetWidth = new ObservableCollection<int> {500, 1000, 1500, 2000};
-            ComboBox1.ItemsSource = sheetWidth;
+            BigSheetWidth.ItemsSource = sheetWidth;
             sheetLenght = new ObservableCollection<int> {3000, 6000};
-            ComboBox2.ItemsSource = sheetLenght;
+            BigSheetLenght.ItemsSource = sheetLenght;
             sheetThikness = new ObservableCollection<int> {3, 4, 5, 6, 7, 8, 9, 10};
-            ComboBox3.ItemsSource = sheetThikness;
+            BigSheetThikness.ItemsSource = sheetThikness;
             Cleaning();
         }
 
@@ -65,9 +66,9 @@ namespace OffCut
         //
         private void Cleaning()
         {
-            ComboBox1.SelectedIndex = 0;
-            ComboBox2.SelectedIndex = 0;
-            ComboBox3.SelectedIndex = 0;
+            BigSheetWidth.SelectedIndex = 0;
+            BigSheetLenght.SelectedIndex = 0;
+            BigSheetThikness.SelectedIndex = 0;
             textBoxWidth.Text = "";
             textBoxLenght.Text = "";
             textBoxThikness.Text = "";
@@ -78,6 +79,56 @@ namespace OffCut
             AmountOfPieces.Content = "";
             TotalCutoff.Content = "";
             CutoffPercent.Content = "";
+        }
+
+        private void TextInputPreview_Digitals(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = "0123456789".IndexOf(e.Text) < 0;
+        }
+
+        private void CalcBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckForData(textBoxLenght) & CheckForData(textBoxWidth) & CheckForData(textBoxThikness) & CheckForData(textBoxOver))
+            {
+                try
+                {
+                    Sheet bigSheet = new Sheet(int.Parse(BigSheetWidth.SelectionBoxItem.ToString()),
+                        int.Parse(BigSheetLenght.SelectionBoxItem.ToString()),
+                        int.Parse(BigSheetThikness.SelectionBoxItem.ToString()));
+
+                    Sheet smallSheet = new Sheet(int.Parse(textBoxWidth.Text) + int.Parse(textBoxOver.Text),
+                        int.Parse(textBoxLenght.Text) + int.Parse(textBoxOver.Text),
+                        int.Parse(textBoxThikness.Text));
+                    res = Calculation.Calc(bigSheet, smallSheet);
+                    ProductWeight.Content = smallSheet.Weight.ToString();
+                    AmountOfPieces.Content = res.ToString();
+                    double totalCutoff = bigSheet.Weight - smallSheet.Weight * res;
+                    TotalCutoff.Content = totalCutoff.ToString();
+                    double cuttoffPercent = (totalCutoff / bigSheet.Weight) * 100;
+                    CutoffPercent.Content = (cuttoffPercent.ToString());
+                    string toPrint = "Результат: " + res.ToString() + " листов";
+                    MessageBox.Show(toPrint);
+                }
+                catch (Exception ex)
+                {
+                    String str = "Ошибка: " + ex.Message;
+                    String name = "Ошибка вычислений";
+                    MessageBox.Show(str, name);
+                }
+            }
+            else
+            {
+                String str = "Ошибка: внесите данные во все поля";
+                String name = "Ошибка заполнения данных";
+                MessageBox.Show(str, name);
+            }
+        }
+
+        private bool CheckForData(TextBox textBox)
+        {
+            if (textBox.Text == "")
+               return false;
+            return true;
         }
     }
 }

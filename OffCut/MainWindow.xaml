@@ -28,33 +28,33 @@
         <StackPanel Orientation="Vertical" Margin="5 30 5 5" Grid.Column="0" Grid.Row="0" >
             <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
                 <Label DockPanel.Dock="Left" Background="Cornsilk" Content="Ширина листа" VerticalAlignment="Center" />
-                <ComboBox x:Name="ComboBox1" DockPanel.Dock="Right" VerticalAlignment="Center" MinWidth="100" />
+                <ComboBox x:Name="BigSheetWidth" DockPanel.Dock="Right" VerticalAlignment="Center" MinWidth="100" />
             </DockPanel>
             <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
                 <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Длина листа" VerticalAlignment="Center" />
-                <ComboBox x:Name="ComboBox2" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+                <ComboBox x:Name="BigSheetLenght" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
             </DockPanel>
             <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
                 <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Толщина листа" VerticalAlignment="Center" />
-                <ComboBox x:Name="ComboBox3" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+                <ComboBox x:Name="BigSheetThikness" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
             </DockPanel>
         </StackPanel>
         <StackPanel Orientation="Vertical" Margin="5 30 5 5" Grid.Column="1" Grid.Row="0" >
             <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
                 <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Ширина изделия" VerticalAlignment="Center" />
-                <TextBox x:Name="textBoxWidth" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+                <TextBox x:Name="textBoxWidth" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" PreviewTextInput="TextInputPreview_Digitals"/>
             </DockPanel>
             <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
                 <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Дина изделия" VerticalAlignment="Center" />
-                <TextBox x:Name="textBoxLenght" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+                <TextBox x:Name="textBoxLenght" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" PreviewTextInput="TextInputPreview_Digitals"/>
             </DockPanel>
             <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
                 <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Толщина изделия" VerticalAlignment="Center" />
-                <TextBox x:Name="textBoxThikness" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+                <TextBox x:Name="textBoxThikness" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" PreviewTextInput="TextInputPreview_Digitals"/>
             </DockPanel>
             <DockPanel LastChildFill="False" VerticalAlignment="Center" Margin="5">
                 <Label DockPanel.Dock="Left" Background="Cornsilk"   Content="Припуск на обработку" VerticalAlignment="Center" />
-                <TextBox x:Name="textBoxOver" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" />
+                <TextBox x:Name="textBoxOver" DockPanel.Dock="Right"   VerticalAlignment="Center" MinWidth="100" PreviewTextInput="TextInputPreview_Digitals"/>
             </DockPanel>
         </StackPanel>
         <Label x:Name="Result" Content="Результаты" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" />
@@ -90,7 +90,7 @@
             <DockPanel LastChildFill="False">
                 <Button x:Name="ExitBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Right" Content="Закрыть" Margin="15 0 15 0" MinWidth="70" Click="ExitBtn_Click"></Button>
                 <Button x:Name="CancelBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Right" Content="Отмена" Margin="15 0 15 0" MinWidth="70" Click="CancelBtn_Click"></Button>
-                <Button x:Name="CalcBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Right" Content="Вычислить" Margin="15 0 15 0" MinWidth="60"></Button>
+                <Button x:Name="CalcBtn" Template="{StaticResource btTemplate}" HorizontalContentAlignment="Center" DockPanel.Dock="Right" Content="Вычислить" Margin="15 0 15 0" MinWidth="60" Click="CalcBtn_Click"></Button>
             </DockPanel>
         </StackPanel>
     </Grid>
