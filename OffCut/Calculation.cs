@@ -17,31 +17,30 @@ namespace OffCut
             //
             //Расчет размещения вдоль
             //
-            int first = (int)Math.Truncate(big.Lenght / small.Lenght);
+            int first = (int)Math.Truncate(big.Lenght / small.Lenght); //Math.Truncate отбрасывает остаток от деления и преобразуем в int
             int second = (int)Math.Truncate(big.Width / small.Width);
-            double third = 0;
+            int third = 0;
             //
             //Расчет возможности раскроя остатков
             //
-            if (big.Lenght % small.Lenght >= small.Width)
+            if (big.Lenght % small.Lenght >= small.Width) // Проверка на возможность размещения деталей на обрезке 
             {
-                third = Math.Truncate((big.Lenght % small.Lenght) / small.Width) * (big.Width / small.Lenght));
+                third = (int)Math.Truncate(Math.Truncate(((big.Lenght % small.Lenght) / small.Width)) * Math.Truncate((big.Width / small.Lenght)));
             }
-            double res1 = first * second + third;
+            int res1 = first * second + third;
             //
             //Расчет размещения поперек
             //
-            first = big.Lenght / small.Width;
-            second = big.Width / small.Lenght;
-            third = 0;
+            first = (int)Math.Truncate(big.Lenght / small.Width);
+            second = (int)Math.Truncate(big.Width / small.Lenght);
             //
             //Расчет возможности раскроя остатков
             //
             if (big.Width % small.Lenght >= small.Width)
             {
-                third = ((big.Width % small.Lenght) / small.Width) * (big.Lenght / small.Lenght);
+                third = (int)Math.Truncate(Math.Truncate(((big.Width % small.Lenght) / small.Width)) * Math.Truncate((big.Lenght / small.Lenght)));
             }
-            double res2 = first * second + third;
+            int res2 = first * second + third;
             return Math.Max(res1, res2);
         }
     }

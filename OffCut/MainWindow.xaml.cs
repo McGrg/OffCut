@@ -99,6 +99,7 @@ namespace OffCut
                     Sheet smallSheet = new Sheet(int.Parse(textBoxWidth.Text) + int.Parse(textBoxOver.Text),
                         int.Parse(textBoxLenght.Text) + int.Parse(textBoxOver.Text),
                         int.Parse(textBoxThikness.Text));
+
                     res = Calculation.Calc(bigSheet, smallSheet);
                     ProductWeight.Content = smallSheet.Weight.ToString();
                     AmountOfPieces.Content = res.ToString();
@@ -106,8 +107,7 @@ namespace OffCut
                     TotalCutoff.Content = totalCutoff.ToString();
                     double cuttoffPercent = (totalCutoff / bigSheet.Weight) * 100;
                     CutoffPercent.Content = (cuttoffPercent.ToString());
-                    string toPrint = "Результат: " + res.ToString() + " листов";
-                    MessageBox.Show(toPrint);
+                    ResultSheet.Content = bigSheet.Weight.ToString();
                 }
                 catch (Exception ex)
                 {
